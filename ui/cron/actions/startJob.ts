@@ -100,7 +100,7 @@ const startAndWatchJob = (job: Job) => {
     try {
       let subprocess;
 
-      const devNull = fs.openSync('/dev/null', 'a');
+      const devNull = fs.openSync(isWindows ? 'nul' : '/dev/null', 'a');
 
       if (isWindows) {
         // Spawn Python directly on Windows so the process can survive parent exit
